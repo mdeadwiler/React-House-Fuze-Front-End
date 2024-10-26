@@ -1,0 +1,91 @@
+/* Basic Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #e0f7fa; /* Light teal background */
+  color: #333;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+header {
+  background-color: #00796b; /* Dark teal header */
+  color: #fff;
+  padding: 1.5em;
+  text-align: center;
+  border-radius: 8px 8px 0 0;
+}
+
+header h1 {
+  font-size: 2em;
+  margin-bottom: 0.2em;
+}
+
+header p {
+  font-size: 1.1em;
+}
+
+.container {
+  max-width: 600px;
+  width: 90%;
+  background-color: #ffffff; /* White background for content */
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  padding: 2em;
+  margin: 20px;
+  text-align: center;
+}
+
+button {
+  background-color: #00796b; /* Dark teal button */
+  color: #fff;
+  border: none;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  cursor: pointer;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+  margin-top: 1em;
+}
+
+button:hover {
+  background-color: #004d40; /* Slightly darker teal */
+}
+
+.job-card {
+  background-color: #fafafa; /* Light gray for job cards */
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  padding: 1.5em;
+  margin-bottom: 1.5em;
+}
+
+.job-card h2 {
+  font-size: 1.4em;
+  color: #00796b;
+}
+
+.job-card p {
+  margin-top: 0.5em;
+  font-size: 1em;
+  color: #666;
+}
+
+footer {
+  background-color: #00796b;
+  color: #fff;
+  text-align: center;
+  padding: 1em;
+  font-size: 0.9em;
+  margin-top: 20px;
+  border-radius: 0 0 8px 8px;
+}
