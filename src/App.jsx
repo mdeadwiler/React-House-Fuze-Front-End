@@ -1,5 +1,5 @@
 // src/App.jsx
-
+//import NavBar from "./components/NavBar";
 
 import "./App.css";
 
