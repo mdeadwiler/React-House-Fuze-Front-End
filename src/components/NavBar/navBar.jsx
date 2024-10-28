@@ -3,30 +3,31 @@ import { Link } from "react-router-dom";
 import { AuthedUserContext } from "../../App.jsx";
 
 
-function NavBar({user}) {
-    const User = useContext(AuthedUserContext);
+function NavBar({handleSignout}) {
+    const user = useContext(AuthedUserContext);
 
     const authorizationOptions = (
-        <ul>
-        <li><Link to='/'>Home</Link></li>
-        <li><Link to='/jobPosts'>Job Post</Link></li>
-        <li><Link to='/postJob'>Post a Job</Link></li>
-        <li><Link to='/postListings'>Job Listings Available</Link></li>
+       <div style={{display: 'flex', flexDirection: 'row', gap: '10px'}}>
+        <Link to='/'>Home</Link><br/>
+        <Link to='/jobPosts'>Job Post</Link><br />
+        <Link to='/postJob'>Post a Job</Link><br />
+        <Link to='/postListings'>Job Listings Available</Link><br />
+        <Link to="" onClick={handleSignout}>Signout</Link>
+        </div>
         
-        </ul>
     );
 
     const unaithorizationOptions = (
-        <ul>
-            <li><Link to='/signin'>Sign In</Link></li>
-            <li><Link to='/signout'>Sign Out</Link></li>
-        </ul>
+            <div style={{display: 'flex', flexDirection: 'row', gap: '10px'}}>
+            <Link to='/signin'>Sign In</Link><br />
+            <Link to='/signout'>Sign Out</Link><br />
+            </div>
     );
     return (
         <nav>
-            {User ? authorizationOptions : unaithorizationOptions}
+            {user ? authorizationOptions : unaithorizationOptions}
         </nav>
-    )
+    );
 }
 
 export default NavBar;
