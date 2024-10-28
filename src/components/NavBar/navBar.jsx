@@ -20,7 +20,7 @@ function NavBar({handleSignout}) {
     const unaithorizationOptions = (
             <div style={{display: 'flex', flexDirection: 'row', gap: '10px'}}>
             <Link to='/signin'>Sign In</Link><br />
-            <Link to='/signout'>Sign Out</Link><br />
+            <Link to='/signout'>Sign Out, Bye!</Link><br />
             </div>
     );
     return (
