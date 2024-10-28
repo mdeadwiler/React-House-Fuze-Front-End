@@ -3,8 +3,8 @@ import { Link } from "react-router-dom";
 import { AuthedUserContext } from "../../App.jsx";
 
 
-function NavBar({handleSignout}) {
-    const user = useContext(AuthedUserContext);
+function NavBar({user}) {
+    const User = useContext(AuthedUserContext);
 
     const authorizationOptions = (
         <ul>
@@ -12,7 +12,7 @@ function NavBar({handleSignout}) {
         <li><Link to='/jobPosts'>Job Post</Link></li>
         <li><Link to='/postJob'>Post a Job</Link></li>
         <li><Link to='/postListings'>Job Listings Available</Link></li>
-        <li><Link to='' onClick={handleSignout}>Sign Out</Link></li>
+        
         </ul>
     );
 
@@ -24,7 +24,7 @@ function NavBar({handleSignout}) {
     );
     return (
         <nav>
-            {user ? authorizationOptions : unaithorizationOptions}
+            {User ? authorizationOptions : unaithorizationOptions}
         </nav>
     )
 }
