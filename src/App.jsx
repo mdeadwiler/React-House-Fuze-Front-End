@@ -1,9 +1,12 @@
 // src/App.jsx
-//import NavBar from "./components/NavBar";
-
+import NavBar from "./components/NavBar/navBar.jsx";
 import "./App.css";
 
+
+
+
 const App = () => {
+  
   return (
     <>
   <h1>House Fuze</h1>
