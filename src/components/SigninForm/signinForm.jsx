@@ -1,7 +1,7 @@
 import { useState } from "react";
-import "./LoginForm.css";
+import "./signinForm.css";
 
-function LoginForm() {
+function SigninForm() {
   const [message, setMessage] = useState("");
   const [formData, setFormData] = useState({
     username: "",
@@ -30,7 +30,7 @@ function LoginForm() {
   };
   return (
     <main>
-      <h3 className="header_login">USER LOGIN</h3>
+      <h3 className="header_login"></h3>
       <p className="message_login">
         {message}
       </p>
@@ -65,4 +65,4 @@ function LoginForm() {
   );
 }
 
-export default LoginForm;
+export default SigninForm;
