@@ -2,6 +2,7 @@
 import NavBar from "./components/NavBar/navBar.jsx";
 import PostJob from "./components/PostJob/postJob.jsx";
 import { createContext, useState, useEffect } from "react";
+export const AuthedUserContext = createContext(null);
 import "./App.css";
 
 // const App = () => {
@@ -16,7 +17,7 @@ import "./App.css";
 // testing
 const App = () => {
   const [user, setUser] = useState(null);
- export const AuthedUserContext = createContext(null);
+
   return (
     <>
       <AuthedUserContext.Provider value={{ user }}>
