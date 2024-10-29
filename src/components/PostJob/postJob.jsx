@@ -41,7 +41,7 @@ const PostJob = () => {
           <input
             type="text"
             value={jobTitle}
-            onChange={(event) => setJobTitle(e.target.value)}
+            onChange={(event) => setJobTitle(event.target.value)}
             required
           />
         </div>
@@ -50,7 +50,7 @@ const PostJob = () => {
           <input
             type="text"
             value={jobDescription}
-            onChange={(event) => setJobDescription(e.target.value)}
+            onChange={(event) => setJobDescription(event.target.value)}
             required
           />
         </div>
