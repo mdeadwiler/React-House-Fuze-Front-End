@@ -1,39 +1,32 @@
-// // src/App.jsx
 import NavBar from "./components/NavBar/navBar.jsx";
-import PostJob from "./components/PostJob/postJob.jsx";
-import { createContext, useState, useEffect } from "react";
-export const AuthedUserContext = createContext(null);
+import { createContext, useState } from "react";
 import "./App.css";
 
-// const App = () => {
- //   return (
-//     <>
-//   <h1>House Fuze</h1>
-//   <h2>This is the Dev Branch</h2>
-//   <p>Connecting Your Home Needs with Trusted Pros</p>
-//   </>
-//   )
-// };
-// testing
+// Create context for authenticated user
+export const AuthedUserContext = createContext(null);
+
 const App = () => {
-  const [user, setUser] = useState(null);
+  const [user, setUser] = useState(null); // State for the authenticated user
+
+  // Dummy function to handle signout (for demonstration purposes)
+  const handleSignout = () => {
+    setUser(null);
+  };
 
   return (
-    <>
-      <AuthedUserContext.Provider value={{ user }}>
-        <NavBar />
+    
+    <AuthedUserContext.Provider value={{ user }}>
+      {/* NavBar now handles rendering the PostJob component */}
+      <NavBar handleSignout={handleSignout} />
+
+      {/* Landing page content */}
+      <div style={{ padding: "20px" }}>
         <h1>House Fuze</h1>
         <h2>This is the Dev Branch</h2>
         <p>Connecting Your Home Needs with Trusted Pros</p>
-   <div>
-      <h1>Job Post</h1>
-      <PostJob />
-    </div>
-      </AuthedUserContext.Provider>
-    </>
-
+      </div>
+    </AuthedUserContext.Provider>
   );
 };
 
 export default App;
-
