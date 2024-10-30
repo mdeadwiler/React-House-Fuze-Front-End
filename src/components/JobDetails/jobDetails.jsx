@@ -3,7 +3,7 @@
 
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import PostBid from '../PostBid/postBid';
+import PostBid from '../PostBid/PostBid';
 
 const JobDetails = () => {
   const { jobPostId } = useParams();
