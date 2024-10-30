@@ -92,6 +92,15 @@ return (
             onChange={handleChange} />
             </div>
             <div>
+            <label htmlFor="contractorCategory">Contractor Category</label>
+            <input
+            type="text"
+            id="contractorCategory"
+            value={contractorCategory}
+            name="contractorCategory"
+            onChange={handleChange} />
+            </div>
+            <div>
             <label htmlFor="hashedPassword">Password</label>
             <input
             type="hashedPassword"
@@ -100,6 +109,16 @@ return (
             name="hashedPassword"
             onChange={handleChange} />
             </div>
+            <div>
+          <label htmlFor="confirm">Confirm Password:</label>
+          <input
+            type="hashedPassword"
+            id="confirm"
+            value={hashedPasswordConf}
+            name="hashedPasswordConf"
+            onChange={handleChange}
+          />
+        </div>
             <div>
             <label htmlFor="contractorCompany">Contractor Company</label>
             <input
@@ -110,17 +129,19 @@ return (
             onChange={handleChange} />
             </div>
             <div>
-            <label htmlFor="contractorCategory">Contractor Category</label>
-            <input
-            type="text"
-            id="contractorCategory"
-            value={contractorCategory}
-            name="contractorCategory"
-            onChange={handleChange} />
-            </div>
+          <button disabled={isFormInvalid()}>Sign Up</button>
+          <Link to="/">
+            <button>Cancel</button>
+          </Link>
+        </div>
+            
       {/* see about !isHomeOwner */}
       </form>
    </main>
 )
 
 }
+/*if (!isHomeOwner){
+   userData.contractorCompany = contractorCompany
+   userData.contractorCategory = contractorCategory
+  }*/
