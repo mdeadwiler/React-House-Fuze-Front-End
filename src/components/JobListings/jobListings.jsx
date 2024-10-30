@@ -1,3 +1,4 @@
+
 import { useEffect, useState, useContext } from "react";
 import { AuthedUserContext } from "../../App.jsx";
 
@@ -39,4 +40,12 @@ const JobListings = () => {
   );
 };
 
+// Zaire
+
+// this is All Jobs.
+// use axios method
+
+
 export default JobListings;
+
+

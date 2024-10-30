@@ -1,5 +1,4 @@
-
-
+//Pete
 import React, { useState } from 'react';
 
 const PostJob = () => {
@@ -57,6 +56,7 @@ const PostJob = () => {
     }
   };
 
+  return (
 
     <form onSubmit={handleSubmit}>
       <h3>Create a Job Post</h3>
@@ -111,6 +111,7 @@ const PostJob = () => {
 
       <button type="submit">Post Job</button>
     </form>
+
 
     <div>
       <h2>Create a Job Post</h2>
@@ -177,23 +178,11 @@ const PostJob = () => {
       </ul>
     </div>
 
+
   );
 };
 
 export default PostJob;
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 //OLD ONE
 
@@ -299,4 +288,6 @@ export default PostJob;
 //   );
 // };
 
-// export default PostJob;
+
+
+

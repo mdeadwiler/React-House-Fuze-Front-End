@@ -1,6 +1,8 @@
+// Marquise 
+
 import { useContext } from "react";
 import { Link } from "react-router-dom";
-import { AuthedUserContext } from "../../App.jsx";
+// import { AuthedUserContext } from "../../App.jsx";
 
 function NavBar({ handleSignout }) {
   // Get user from context, but handle potential null
