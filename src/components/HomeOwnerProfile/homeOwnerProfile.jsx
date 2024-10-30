@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-
+//This is just a rough draft. This should get you started
 const HomeOwnerProfile = () => {
   const { userData } = useParams();
   const [homeOwner, setHomeOwner] = useState(null);
@@ -15,7 +15,7 @@ const HomeOwnerProfile = () => {
     };
     setHomeOwner(userData);
   }, [userData]);
-
+// need to figure out how we want it displayed from a client side perspective...as a user
   return (
     <div className="homeOwner">
       <div className="homeOwner-picture">
