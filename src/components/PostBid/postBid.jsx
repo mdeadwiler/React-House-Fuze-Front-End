@@ -1,6 +1,5 @@
 //Pete
-
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 //linked to jobPostId
 const PostBid = ({ jobPostId }) => {
@@ -15,8 +14,7 @@ const PostBid = ({ jobPostId }) => {
   const handleSubmit = async (e) => {
     e.preventDefault();
 
-  
-    const bidData = {
+  const bidData = {
       bidAmount,
       jobStartDate,
       jobEndDate,
@@ -206,6 +204,8 @@ export default PostBid;
 //         <button type="submit">Submit Bid</button>
 //       </form>
 
+
+
 //       <h3>Current Bids on Job</h3>
 //       <ul>
 //         {bids.map((bid, index) => (
@@ -224,3 +224,19 @@ export default PostBid;
 // export default PostsBid;
 
 
+//       <h3>Current Bids on Job</h3>
+//       <ul>
+//         {bids.map((bid, index) => (
+//           <li key={index}>
+//             <p>Bid Amount: ${bid.amount}</p>
+//             <p>Description: {bid.description}</p>
+//             <p>Contractor Name: {bid.contractorName}</p>
+//             <p>Contact Info: {bid.contactInfo}</p>
+//           </li>
+//         ))}
+//       </ul>
+//     </div>
+//   );
+// };
+
+// export default PostsBid;

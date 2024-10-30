@@ -1,14 +1,17 @@
 // Pete & George
 // This is to pull an idividual job /job/:jobID
 
-import React, { useEffect, useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import PostBid from '../PostBid/PostBid';
+
+
+// we want to figure out how to implement role based access-control so homeowners are only seeing the jobs they've posted
 
 const JobDetails = () => {
   const { jobPostId } = useParams();
   const [jobPost, setJobPost] = useState(null);
-  const [bids, setBids] = useState([]);
+  // const [bids, setBids] = useState([]);
 
   
   useEffect(() => {
@@ -23,13 +26,12 @@ const JobDetails = () => {
         const data = await response.json();
         setJobPost(data.jobPost);
 
-        if (data.jobPost.bids) {
-            const currentUserBid = data.jobPost.bids.find(
-              bid => bid.contractor === localStorage.getItem('userId')
-            );
-            setUserBid(currentUserBid);
-        }
-      } catch (err) {
+        // if (data.jobPost.bids) {
+        //     const currentUserBid = data.jobPost.bids.find(
+        //       bid => bid.contractor === localStorage.getItem('userId')
+        //     );
+        //     setUserBid(currentUserBid);
+        } catch (err) {
         console.error("Error finding job post:", err);
       }
     };
@@ -41,7 +43,6 @@ const JobDetails = () => {
   if (!jobPost) {
     return<p>We can't find that job right now.</p>
   }
-
 
   return (
     <div>
@@ -55,7 +56,19 @@ const JobDetails = () => {
         <p>Date Created: {jobPost.dateCreated}</p>
         <p>Posted By: {jobPost.postedBy}</p>
       </div>
+{/* 
+We want to render any existing bids associated with jobPostId,
+as well as providing the option to post a bit to the current job.
 
+We also want to include role based access control so homeowners can't
+post bids. */}
+
+      <PostBid jobPostId={jobPostId} />
+      </div>
+  );
+};     
+
+{/* 
       <div className="bid-section">
         {userBid ? (
           <div className="existing-bid">
@@ -65,12 +78,6 @@ const JobDetails = () => {
             <p>End Date: {new Date(userBid.jobEndDate).toLocaleDateString()}</p>
             <p>Status: {userBid.status}</p>
           </div>
-        ) : (
-          <PostBid jobPostId={jobPostId} />
-        )}
-      </div>
-    </div>
-  );
-};
+        ) : ( */}
 
 export default JobDetails;

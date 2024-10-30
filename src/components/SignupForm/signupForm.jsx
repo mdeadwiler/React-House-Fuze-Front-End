@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-//import { SignupForm } from "../SignupForm/SignupForm";
+import { signup } from "../../Services/authService.js"; 
 
 function SignupForm({ setUser }) {
   const [string, setString] = useState("");
@@ -13,7 +13,7 @@ function SignupForm({ setUser }) {
     email: "",
     firstName: "",
     lastName: "",
-    isHomeOwner: "",
+    isHomeOwner: true,
     contractorCompany: "",
     contractorCategory: "",
   });
@@ -24,25 +24,21 @@ function SignupForm({ setUser }) {
     setString(string);
   };
 
-  const handleChange = (event) => {
-     const user =
-       event.target[
-         {
-           username,
-           password,
-           email,
-           firstName,
-           lastName,
-           //isHomeOwner,
-           contractorCompany,
-           contractorCategory,
-         }
-       ];
-    const { name, value } = event.target;
+  const handleChange = (e) => {
+    const { name, value } = e.target;
 
     setFormData((prevFormData) => ({
       ...prevFormData,
       [name]: value,
+    }));
+  };
+
+  const handleCheckboxChange = (e) => {
+    const { value } = e.target
+
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      isHomeOwner: value === 'homeOwner',
     }));
   };
 
@@ -53,10 +49,16 @@ function SignupForm({ setUser }) {
       updateMessage("This password does not match, try again!");
       return;
     }
+
     try {
-      const userRes = await SignupForm(formData);
-      setUser(userRes.user);
-      navigate("/");
+      if (isHomeOwner) {
+        delete formData.contractorCategory
+        delete formData.contractorCompany
+      }
+
+      const userData = await signup(formData);
+      setUser(userData);
+      navigate("/homepage");
     } catch (error) {
       updateMessage(error.message);
     }
@@ -75,6 +77,7 @@ function SignupForm({ setUser }) {
     lastName,
     contractorCompany,
     contractorCategory,
+    isHomeOwner
   } = formData;
 
   return (
@@ -106,7 +109,7 @@ function SignupForm({ setUser }) {
           <label htmlFor="firstName">First Name</label>
           <input
             type="text"
-            id="username"
+            id="firstName"
             value={firstName}
             name="firstName"
             onChange={handleChange}
@@ -116,13 +119,37 @@ function SignupForm({ setUser }) {
           <label htmlFor="lastName">Last Name</label>
           <input
             type="text"
-            id="username"
+            id="lastName"
             value={lastName}
             name="lastName"
             onChange={handleChange}
           />
         </div>
         <div>
+        <label>
+          <input
+            type="radio"
+            name="userType"
+            value="homeOwner"
+            checked={isHomeOwner === true}
+            onChange={handleCheckboxChange}
+          />
+          Home Owner
+        </label>
+        <label>
+          <input
+            type="radio"
+            name="userType"
+            value="contractor"
+            checked={isHomeOwner === false}
+            onChange={handleCheckboxChange}
+          />
+          Contractor
+        </label>
+      </div>
+        { !isHomeOwner ? (
+          <>
+          <div>
           <label htmlFor="contractorCategory">Contractor Category</label>
           <input
             type="text"
@@ -132,6 +159,18 @@ function SignupForm({ setUser }) {
             onChange={handleChange}
           />
         </div>
+        <div>
+          <label htmlFor="contractorCompany">Contractor Company</label>
+          <input
+            type="title"
+            id="contractorCompany"
+            value={contractorCompany}
+            name="contractorCompany"
+            onChange={handleChange}
+          />
+        </div>
+        </>
+        ) : ""}
         <div>
           <label htmlFor="password">Password</label>
           <input
@@ -149,16 +188,6 @@ function SignupForm({ setUser }) {
             id="passwordConf"
             value={passwordConf}
             name="passwordConf"
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="contractorCompany">Contractor Company</label>
-          <input
-            type="title"
-            id="contractorCompany"
-            value={contractorCompany}
-            name="contractorCompany"
             onChange={handleChange}
           />
         </div>

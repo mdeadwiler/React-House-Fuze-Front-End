@@ -1,1 +1,8 @@
-// This is the Dashboard page
+
+function HomePage() {
+  return (
+    <div>homePage</div>
+  )
+}
+
+export default HomePage
