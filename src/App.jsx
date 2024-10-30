@@ -1,4 +1,6 @@
+
 // src/App.jsx
+
 import NavBar from "./components/NavBar/navBar.jsx";
 import { createContext, useState } from "react";
 import React from 'react';
