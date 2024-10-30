@@ -47,6 +47,8 @@ input[type="password"]:focus {
 }
 
 button {
+  display: flex;
+  justify-content: center;
   padding: 0.75rem 1.5rem;
   background-color: #0077cc;
   color: white;

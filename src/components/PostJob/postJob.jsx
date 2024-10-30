@@ -57,7 +57,7 @@ const PostJob = () => {
     }
   };
 
-  return (
+
     <form onSubmit={handleSubmit}>
       <h3>Create a Job Post</h3>
 
@@ -111,6 +111,72 @@ const PostJob = () => {
 
       <button type="submit">Post Job</button>
     </form>
+
+    <div>
+      <h2>Create a Job Post</h2>
+      <form onSubmit={handleSubmit}>
+        <div>
+          <label>Job Title:</label>
+          <input
+            type="text"
+            value={jobTitle}
+            onChange={(event) => setJobTitle(event.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label>Job Description:</label>
+          <input
+            type="text"
+            value={jobDescription}
+            onChange={(event) => setJobDescription(event.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label>Category:</label>
+          <input
+            type="text"
+            value={category}
+            onChange={(event) => setCategory(event.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label>Budget:</label>
+          <input
+            type="number"
+            value={budget}
+            onChange={(event) => setBudget(event.target.value)}
+            required
+          />
+        </div>
+        <div>
+          <label>Location:</label>
+          <input
+            type="text"
+            value={location}
+            onChange={(event) => setLocation(event.target.value)}
+            required
+          />
+        </div>
+        <button type="submit">Create Job Post</button>
+      </form>
+
+      <h3>Job Posts</h3>
+      <ul>
+        {jobPosts.map((post, index) => (
+          <li key={index}>
+            <h4>{post.title}</h4>
+            <p>Description: {post.description}</p>
+            <p>Category: {post.category}</p>
+            <p>Budget: ${post.budget}</p>
+            <p>Location: {post.location}</p>
+          </li>
+        ))}
+      </ul>
+    </div>
+
   );
 };
 
