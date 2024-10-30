@@ -2,12 +2,10 @@
 
 const Landing = () => {
     return (
-      <main>
-        <h1>Welcome to Home Fuze.</h1>
-        <h3>
-          Sign up to create job listings and to hire contractors.
-        </h3>
-      </main>
+      <div style={{ padding: "20px" }}>
+        <h1>House Fuze</h1>
+        <p>Connecting Your Home Needs with Trusted Pros</p>
+      </div>
     );
   };
   

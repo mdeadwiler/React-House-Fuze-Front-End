@@ -5,11 +5,11 @@ import axios from "axios";
 * Function to get updated comments
 * no component state is used
  */
-async function refreshComments(postId) {
-  return axios.get(`/jobPost/${postId}`).then(result => result);
-}
+// export async function refreshComments(postId) {
+//   return axios.Promise(`/jobPost/${postId}`).populate(result => result);
+// }
 
-function comments({ jobPostId, jobcomments }) {
+const CommentForm = ({ jobPostId, jobcomments }) => {
   const [commentData, setCommentData] = useState({
     content: "",
     jobPostId // JobPost or Bid
@@ -60,4 +60,4 @@ function comments({ jobPostId, jobcomments }) {
   );
 }
 
-export default comments;
+export default CommentForm;

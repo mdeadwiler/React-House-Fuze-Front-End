@@ -1,15 +1,17 @@
 // src/App.jsx
-import NavBar from "./components/NavBar/NavBar.jsx";
-import { createContext, useState } from "react";
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-import PostJob from './components/PostJob';
-import JobDetails from './components/JobDetails';
+import NavBar from "../src/components/NavBar/NavBar";
+import { useState } from "react";
+import { AuthedUserContext } from "./Services/authContext.js";
+import { Routes, Route } from "react-router-dom";
+import Landing from "./components/Landing/Landing.jsx";
+import SignupForm from "./components/SignupForm/SignupForm.jsx"
+import SigninForm from "./components/SigninForm/SigninForm.jsx"
+import PostJob from "./components/PostJob/PostJob.jsx";
+import JobDetails from "./components/JobDetails/JobDetails.jsx";
 import "./App.css";
-export const AuthedUserContext = createContext(null);
 
 const App = () => {
-const [user, setUser] = useState(null); // State for the authenticated user
-
+  const [user, setUser] = useState(null); // State for the authenticated user
 
   const handleSignout = () => {
     setUser(null);
@@ -17,25 +19,21 @@ const [user, setUser] = useState(null); // State for the authenticated user
 
   return (
     <AuthedUserContext.Provider value={{ user }}>
-      {/* NavBar now handles rendering the PostJob component */}
       <NavBar handleSignout={handleSignout} />
-
-      {/* Landing page content */}
-      <div style={{ padding: "20px" }}>
-        <h1>House Fuze</h1>
-        <h2>This is the Dev Branch</h2>
-        <p>Connecting Your Home Needs with Trusted Pros</p>
-      </div>
-<Router>
       <Routes>
-        <Route path="/" element={<PostJob />} /> {/* creates a job post route */}
-        <Route path="/jobPosts/:jobPostId" element={<JobDetails />} /> {/*GET route to return a job post with details (comments n bids), do we need /jobposts/:jobpostid or can i drop that? */}
+        <Route path="/" element={<Landing />} />
+        <Route path="/signup" element={<SignupForm setUser={setUser}/>} />
+        <Route path="/signin" element={<SigninForm setUser={setUser}/>} />
+        
+        <Route path="/jobPosts/new" element={<PostJob />} />
+        {/* creates a job post route */}
+        <Route path="/jobPosts/:jobPostId" element={<JobDetails />} />
+        {/*GET route to return a job post with details (comments n bids), do we need /jobposts/:jobpostid or can i drop that? */}
       </Routes>
-    </Router>
-      {  
-      //  <Comments jobId={12} comments={commentArray}/>
+      {
+        //  <Comments jobId={12} comments={commentArray}/>
       }
     </AuthedUserContext.Provider>
-  )
+  );
 };
 export default App;

@@ -1,5 +1,5 @@
 //Pete
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 const PostJob = () => {
   // left out postedBy b/c i dont think we need it, i dont think the user fills that in
@@ -57,7 +57,7 @@ const PostJob = () => {
   };
 
   return (
-
+    <>
     <form onSubmit={handleSubmit}>
       <h3>Create a Job Post</h3>
 
@@ -115,7 +115,7 @@ const PostJob = () => {
 
     <div>
       <h2>Create a Job Post</h2>
-      <form onSubmit={handleSubmit}>
+      {/* <form onSubmit={handleSubmit}>
         <div>
           <label>Job Title:</label>
           <input
@@ -175,10 +175,10 @@ const PostJob = () => {
             <p>Location: {post.location}</p>
           </li>
         ))}
-      </ul>
+      </ul> */}
     </div>
 
-
+    </>
   );
 };
 

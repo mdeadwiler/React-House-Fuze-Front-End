@@ -1,5 +1,5 @@
 //Pete
-import React, { useState } from 'react';
+import { useState } from 'react';
 
 //linked to jobPostId
 const PostBid = ({ jobPostId }) => {
