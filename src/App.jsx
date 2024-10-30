@@ -1,9 +1,8 @@
 // src/App.jsx
-<<<<<<< HEAD
+
 import LoginForm from "./components/LoginForm/LoginForm";
 
 import "./App.css"
-=======
 import NavBar from "./components/NavBar/navBar.jsx";
 import "./App.css";
 
@@ -30,6 +29,10 @@ const App = () => {
         <h2>This is the Dev Branch</h2>
         <p>Connecting Your Home Needs with Trusted Pros</p>
       </div>
+
+      {  
+      //  <Comments jobId={12} comments={commentArray}/>
+      }
     </AuthedUserContext.Provider>
   );
 };
