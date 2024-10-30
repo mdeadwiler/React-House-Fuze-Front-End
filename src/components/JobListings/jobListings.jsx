@@ -1,37 +1,44 @@
-
 import { useEffect, useState, useContext } from "react";
-import { AuthedUserContext } from "../../App.jsx";
+import { Link } from "react-router-dom";
+import { AuthedUserContext } from "../../Services/authContext.js";
+import { getJobPosts } from "../../Services/jobPosts.js";
 
 const JobListings = () => {
-  const [jobListings, setJobListings] = useState([]);
+  const [ jobListings, setJobListings] = useState([]);
   const { user } = useContext(AuthedUserContext);
 
   useEffect(() => {
-    // Mock data fetching for demonstration purposes
-    const mockJobs = [
-      { _id: 1, title: "Plumbing Fix", description: "Fix kitchen sink leak", location: "New York, NY", homeownerName: "John Doe", createdAt: "2024-10-01" },
-      { _id: 2, title: "Painting Job", description: "Paint living room", location: "Los Angeles, CA", homeownerName: "Jane Smith", createdAt: "2024-10-15" },
-    ];
-    setJobListings(mockJobs);
-  }, []);
+    const fetchJobPosts = async () => {
+      const jobPostsData = await getJobPosts()
 
-  // Restrict access if user is not a contractor
-  if (!user || user.isHomeowner) {
-    return <p>Access restricted: Only contractors can view job listings.</p>;
-  }
+      if (user.isHomeOwner) { // If user is a homeowner, we want to filter all job posts for just that user's job posts
+        const ownerJobPosts = jobPostsData.filter((job) => {
+          return job.postedBy._id === user._id
+        })
+
+        setJobListings(ownerJobPosts)
+      } else {
+        setJobListings(jobPostsData)
+      }
+    }
+
+    fetchJobPosts()
+  }, []);
 
   return (
     <div className="container">
-      <h1>Available Job Listings</h1>
+      <h1>{user?.isHomeOwner ? "Your Job Listings": "Available Job Listings"}</h1>
       {jobListings.length > 0 ? (
         jobListings.map((job) => (
-          <div key={job._id} className="job-card">
-            <h2>{job.title}</h2>
-            <p>{job.description}</p>
-            <p><strong>Location:</strong> {job.location}</p>
-            <p><strong>Posted by:</strong> {job.homeownerName}</p>
-            <p><strong>Posted on:</strong> {new Date(job.createdAt).toLocaleDateString()}</p>
-          </div>
+          <Link key={job._id} to={`/jobPosts/${job._id}`}>
+            <div  className="job-card">
+              <h2>{job.title}</h2>
+              <p>{job.content}</p>
+              <p><strong>Location:</strong> {job.location}</p>
+              <p><strong>Posted by:</strong> {job.postedBy.username}</p>
+              <p><strong>Posted on:</strong> {new Date(job.dateCreated).toLocaleDateString()}</p>
+            </div>
+          </Link>
         ))
       ) : (
         <p>No job listings available at the moment.</p>

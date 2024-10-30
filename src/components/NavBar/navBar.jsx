@@ -42,13 +42,9 @@ function NavBar({ handleSignout }) {
 
   const authorizationOptions = (
     <div style={{ display: "flex", flexDirection: "row", gap: "10px" }}>
-      <Link to="/">Home</Link>
+      <Link to="/homepage">Home</Link>
       <br />
-      <Link to="/jobPosts">Job Post</Link>
-      <br />
-      <Link to="/postJob">Post a Job</Link>
-      <br />
-      <Link to="/postListings">Job Listings Available</Link>
+      <Link to="/jobPosts/new">Post a Job</Link>
       <br />
       <Link to="" onClick={handleSignout}>
         Signout
