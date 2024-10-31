@@ -1,0 +1,68 @@
+.signup_parent_container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(../Images/homelogin.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: 95vh;
+}
+
+.signup_main {
+    background-color: rgba(255, 255, 255, 0.9);
+    width: 320px;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+    text-align: center;
+}
+
+.signup_main label {
+    font-weight: bold;
+    font-size: 0.9rem;
+    margin-bottom: 0.3rem;
+    color: #003161;
+}
+
+.input_tag {
+    border: 2px solid;
+    border-radius: 4px;
+    font-size: 1 rem;
+    margin: 0.25rem;
+    min-width: 250px;
+    padding: 0.5rem;
+    transition: border-color 05s ease-out;
+}
+
+.input_tag[type] {
+    display: flex;
+    justify-content: space-between;
+}
+
+#btn_signup {
+    display: flex;
+    justify-content: space-between;
+    /* Or use space-around, space-evenly */
+}
+
+.signup_btn,
+.cancel_btn {
+    /* Base styles for both buttons */
+    background-color: #0B192C;
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.radio_container {
+    display: flex;
+    justify-content: space-around;
+}
+
+.radio_container label {
+    margin-left: 3px;
+    position: relative;
+    bottom: 1px;
+}
