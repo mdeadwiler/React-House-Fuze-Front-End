@@ -29,3 +29,14 @@ export const getJobPost = async (jobPostId) => {
     throw error;
   }
 };
+
+export const addComment = async (jobPostId) => {
+  try {
+   const res = await axios.get(`${BACKEND_URL}/${jobPostId}/comments`);
+   return res.data;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+};
+
