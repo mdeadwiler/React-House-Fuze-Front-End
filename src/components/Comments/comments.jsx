@@ -6,8 +6,8 @@ import axios from "axios";
 * no component state is used
  */
 // export async function refreshComments(postId) {
-//   return axios.Promise(`/jobPost/${postId}`).populate(result => result);
-// }
+//    return axios.Promise(`/jobPost/${postId}`).populate(result => result);
+//  }
 
 const CommentForm = ({ jobPostId, jobcomments }) => {
   const [commentData, setCommentData] = useState({

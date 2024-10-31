@@ -1,4 +1,4 @@
-// George
+
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./signinForm.css";
@@ -32,9 +32,14 @@ function SigninForm({setUser}) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     // console.log("Form Submitted:", formData);
-    const userData = await signin(formData) /// userData that we pass in authService....
-    setUser(userData)
-    navigate("/homepage")
+    try {
+      const userData = await signin(formData) /// userData that we pass in authService....
+      setUser(userData)
+      navigate("/homepage")
+    } catch (error) {
+      console.log(error)
+      updateMessage(error.response.data.error)
+    }
   };
 
   return (

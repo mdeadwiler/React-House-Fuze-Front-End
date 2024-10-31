@@ -30,13 +30,21 @@ export const getJobPost = async (jobPostId) => {
   }
 };
 
-export const addComment = async (jobPostId) => {
+
+export const addComment = async (jobPostId, commentData) => {
   try {
-   const res = await axios.get(`${BACKEND_URL}/${jobPostId}/comments`);
+   const res = await axios.post(`${BACKEND_URL}/api/jobPosts/${jobPostId}/comments`,
+    {
+      headers: {
+        Authorization: `Bearer ${localStorage.getItem("token")}`,
+      },
+    }, commentData);
+
    return res.data;
   } catch (error) {
     console.log(error);
     throw error;
   }
-};
+
+}
 
