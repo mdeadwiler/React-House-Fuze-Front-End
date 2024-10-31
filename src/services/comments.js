@@ -1,4 +1,4 @@
-import axios from axios
+import axios from "axios"
 
 const BACKEND_URL = import.meta.env.VITE_BACK_END_SERVER_URL;
 

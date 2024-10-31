@@ -2,7 +2,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./signinForm.css";
-import { signin } from "../../Services/authService.js";
+import { signin } from "../../services/authService.js";
 
 function SigninForm({setUser}) {
   const [message, setMessage] = useState("");
