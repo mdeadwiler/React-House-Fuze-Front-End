@@ -48,7 +48,7 @@ const JobDetails = () => {
         <p>Date Created: {jobPost.dateCreated}</p>
         <p>Posted By: {jobPost.postedBy.username}</p>
       </div>
-      <PostBid jobPostId={jobPostId} bids={bids}/>
+      <PostBid jobPostId={jobPostId} setToggle={setToggle}/>
       {bids.map((bid) => (
         <div key={bid._id}>
           <p>Contractor: {bid.contractor.contractorCompany}</p>
