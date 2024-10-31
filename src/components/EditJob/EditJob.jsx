@@ -1,18 +1,36 @@
 //Pete
-import { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import { createJobPost } from "../../services/jobPosts";
+import { useState, useEffect } from "react";
+import { useParams, useNavigate } from "react-router-dom";
+import { getJobPost, editJobPost } from "../../services/jobPosts";
 
 const PostJob = () => {
-  // left out postedBy b/c i dont think we need it, i dont think the user fills that in
   const [title, setTitle] = useState("");
   const [content, setContent] = useState("");
   const [category, setCategory] = useState("roofing");
   const [location, setLocation] = useState("");
 
+  const {jobPostId} = useParams()
   const navigate = useNavigate()
 
+  useEffect(() => {
+    const fetchJobPost = async () => {
+      try {
+        const jobPostData = await getJobPost(jobPostId)
+
+        setTitle(jobPostData.jobPost.title)
+        setContent(jobPostData.jobPost.content)
+        setCategory(jobPostData.jobPost.category)
+        setLocation(jobPostData.jobPost.location)
+        
+        } catch (err) {
+        console.error("Error finding job post:", err);
+      }
+    };
+
+    fetchJobPost();
+  }, [jobPostId]);
   
+
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -25,13 +43,13 @@ const PostJob = () => {
     };
 
     try {
-      const response = await createJobPost(jobData);
+      const response = await editJobPost(jobPostId, jobData);
 
-      if (response.status !== 201) {
+      if (response.status !== 200) {
         throw new Error("Failed to create job post");
       }
 
-      navigate("/homepage")
+      navigate(`/jobPosts/${jobPostId}`)
     } catch (err) {
       console.error("Error:", err.message);
     }
@@ -40,7 +58,7 @@ const PostJob = () => {
   return (
     <>
       <form onSubmit={handleSubmit}>
-        <h3>Create a Job Post</h3>
+        <h3>Edit a Job Post</h3>
 
         <label>Title:</label>
         <input
@@ -83,7 +101,7 @@ const PostJob = () => {
           required
         />
 
-        <button type="submit">Post Job</button>
+        <button type="submit">Edit Job</button>
       </form>
     </>
   );

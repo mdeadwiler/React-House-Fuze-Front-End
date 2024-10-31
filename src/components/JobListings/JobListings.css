@@ -1,0 +1,9 @@
+.svg-icons {
+    height: 20px;
+    margin: 0 5px;
+}
+
+.heading-and-trash {
+    display: flex;
+    justify-content: space-between;
+}
