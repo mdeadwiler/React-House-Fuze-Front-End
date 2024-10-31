@@ -1,4 +1,3 @@
-// src/App.jsx
 import NavBar from "../src/components/NavBar/NavBar";
 import { useState } from "react";
 import { AuthedUserContext } from "./Services/authContext.js";
@@ -13,7 +12,7 @@ import "./App.css";
 
 const App = () => {
   const [user, setUser] = useState(null); // State for the authenticated user
-
+  
   const handleSignout = () => {
     setUser(null);
   };
@@ -28,13 +27,8 @@ const App = () => {
         <Route path="/homepage" element={<JobListings />}/>
         
         <Route path="/jobPosts/new" element={<PostJob />} />
-        {/* creates a job post route */}
         <Route path="/jobPosts/:jobPostId" element={<JobDetails />} />
-        {/*GET route to return a job post with details (comments n bids), do we need /jobposts/:jobpostid or can i drop that? */}
       </Routes>
-      {
-        //  <Comments jobId={12} comments={commentArray}/>
-      }
     </AuthedUserContext.Provider>
   );
 };
