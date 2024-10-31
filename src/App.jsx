@@ -1,6 +1,7 @@
 import NavBar from "../src/components/NavBar/NavBar";
-import { useState } from "react";
-import { AuthedUserContext } from "./Services/authContext.js";
+import { useState, useEffect } from "react";
+import { AuthedUserContext } from "./services/authContext.js";
+import { getUser } from "./services/authService.js";
 import { Routes, Route } from "react-router-dom";
 import Landing from "./components/Landing/Landing.jsx";
 import SignupForm from "./components/SignupForm/SignupForm.jsx"
@@ -12,8 +13,18 @@ import "./App.css";
 
 const App = () => {
   const [user, setUser] = useState(null); // State for the authenticated user
+
+  const fetchUser = async () => {
+   const userData = await getUser()
+   setUser(userData);
+  }
+
+  useEffect(()=>{
+    fetchUser();
+  }, []) 
   
   const handleSignout = () => {
+    localStorage.removeItem('token');
     setUser(null);
   };
 

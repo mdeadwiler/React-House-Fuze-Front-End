@@ -1,10 +1,10 @@
-import axios from axios
+import axios from "axios"
 
 const BACKEND_URL = import.meta.env.VITE_BACK_END_SERVER_URL;
 
 export const updateComment = async (commentId, updatedComment) => {
   try {
-    const response = await axios.put(`${VITE_BACK_END_SERVER_URL}/api/comments/${commentId}`,
+    const response = await axios.put(`${BACKEND_URL}/api/comments/${commentId}`,
    {
     headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
@@ -20,7 +20,7 @@ export const updateComment = async (commentId, updatedComment) => {
 
 export const deleteComment = async (commentId) => {
   try {
-    const response = await axios.delete(`${VITE_BACK_END_SERVER_URL}/api/comments/${commentId}`,
+    const response = await axios.delete(`${BACKEND_URL}/api/comments/${commentId}`,
    {
     headers: {
         Authorization: `Bearer ${localStorage.getItem("token")}`,

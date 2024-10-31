@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { signup } from "../../Services/authService.js"; 
+import { signup } from "../../services/authService.js"; 
 
 function SignupForm({ setUser }) {
   const [string, setString] = useState("");
