@@ -1,6 +1,6 @@
 import NavBar from "../src/components/NavBar/NavBar";
 import { useState } from "react";
-import { AuthedUserContext } from "./Services/authContext.js";
+import { AuthedUserContext } from "./services/authContext.js";
 import { Routes, Route } from "react-router-dom";
 import Landing from "./components/Landing/Landing.jsx";
 import SignupForm from "./components/SignupForm/SignupForm.jsx"

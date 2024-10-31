@@ -1,6 +1,6 @@
 import { useEffect, useState, useContext } from 'react';
 import { useParams } from 'react-router-dom';
-import { getJobPost } from '../../Services/jobPosts.js';
+import { getJobPost } from '../../services/jobPosts.js';
 import { deleteComment } from '../../services/comments.js';
 import PostBid from '../PostBid/PostBid';
 

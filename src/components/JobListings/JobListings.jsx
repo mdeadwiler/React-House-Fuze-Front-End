@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import { AuthedUserContext } from "../../Services/authContext.js";
-import { getJobPosts } from "../../Services/jobPosts.js";
+import { AuthedUserContext } from "../../services/authContext.js";
+import { getJobPosts } from "../../services/jobPosts.js";
 
 const JobListings = () => {
   const [ jobListings, setJobListings] = useState([]);
