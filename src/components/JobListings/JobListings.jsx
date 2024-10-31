@@ -11,7 +11,7 @@ const JobListings = () => {
     const fetchJobPosts = async () => {
       const jobPostsData = await getJobPosts()
 
-      if (user.isHomeOwner) { // If user is a homeowner, we want to filter all job posts for just that user's job posts
+      if (user?.isHomeOwner) { // If user is a homeowner, we want to filter all job posts for just that user's job posts
         const ownerJobPosts = jobPostsData.filter((job) => {
           return job.postedBy._id === user._id
         })
