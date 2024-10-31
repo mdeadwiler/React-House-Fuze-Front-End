@@ -1,13 +1,17 @@
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useContext } from 'react';
 import { useParams } from 'react-router-dom';
 import { getJobPost } from '../../Services/jobPosts.js';
+import { deleteComment } from '../../services/comments.js';
 import PostBid from '../PostBid/PostBid';
 
 const JobDetails = () => {
   const [jobPost, setJobPost] = useState(null);
   const [bids, setBids] = useState(null);
   const [comments, setComments] = useState(null);
+  const [toggle, setToggle] = useState(false)
+
   const { jobPostId } = useParams();
+  const { user } = useContext(AuthedUserContext);
 
   
   useEffect(() => {
@@ -23,7 +27,7 @@ const JobDetails = () => {
     };
 
     fetchJobPost();
-  }, [jobPostId]);
+  }, [jobPostId, toggle]);
 
   //probably a better way to do this, lets check it out
   if (!jobPost) {
@@ -51,11 +55,12 @@ const JobDetails = () => {
       ))}
       {/* should this be its own "div className = blah blah blah"??  */}
       <h3>Comments</h3>
-        <CommentForm jobPostId={jobPostId}/>
+        <CommentForm jobPostId={jobPostId} setToggle={setToggle}/>
         {comments.map((comment) => (
           <div key={comment._id}>
             <p>Comment: {comment.content}</p>
             <p>Posted By: {comment.postedBy.username}</p>
+            {comment.userId === user._id ? (<button onClick={() => deleteComment(comment._id)}>TrashBin</button>) : null}
           </div>
         ))}
     </div>

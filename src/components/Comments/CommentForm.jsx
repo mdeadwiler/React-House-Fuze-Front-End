@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import { addComment } from "../../services/jobPosts";
 
 /**
 * Function to get updated comments
@@ -9,31 +10,22 @@ import axios from "axios";
 //    return axios.Promise(`/jobPost/${postId}`).populate(result => result);
 //  }
 
-const CommentForm = ({ jobPostId, jobcomments }) => {
+const CommentForm = ({ jobPostId, setToggle }) => {
   const [commentData, setCommentData] = useState({
-    content: "",
-    jobPostId // JobPost or Bid
+    content: ""
   });
-
-  //comments for mapping
-  const [comments, setComments] = useState(jobcomments); // original job comments
 
   //handle change function
   const handleChange = e => {
-    setCommentData({ ...commentData, content: e.target.value });
+    setCommentData(prevComment => ({ ...prevComment, content: e.target.value }));
   };
 
   // handleSubmit function
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    axios
-      .post(`/${jobPostId}/comments`, { content: commentData.content })
-      .then(async res => {
-        const newComments = await refreshComments();
-        // console.log(newComments)
-        setComments(newComments.comments); // backend object
-      });
+    await addComment(jobPostId, commentData)
+    setToggle(prev => !prev)
   };
 
   return (
@@ -49,13 +41,6 @@ const CommentForm = ({ jobPostId, jobcomments }) => {
         />
         <button type="submit">Add Comment</button>
       </form>
-      <ul>
-        {comments.map(comment =>
-          <li key={comment._id}>
-            {comment.content}
-          </li>
-        )}
-      </ul>
     </div>
   );
 }
