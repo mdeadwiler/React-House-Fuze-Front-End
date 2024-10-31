@@ -30,6 +30,7 @@ export const getJobPost = async (jobPostId) => {
   }
 };
 
+
 export const addComment = async (jobPostId, commentData) => {
   try {
    const res = await axios.post(`${BACKEND_URL}/api/jobPosts/${jobPostId}/comments`,
@@ -38,9 +39,12 @@ export const addComment = async (jobPostId, commentData) => {
         Authorization: `Bearer ${localStorage.getItem("token")}`,
       },
     }, commentData);
+
    return res.data;
   } catch (error) {
     console.log(error);
     throw error;
   }
+
 }
+

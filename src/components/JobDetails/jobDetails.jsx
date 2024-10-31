@@ -49,9 +49,21 @@ const JobDetails = () => {
           <p>Bid Amount: ${bid.bidAmount}</p>
         </div>
       ))}
-      {/* map through comments same as you are doing in PostBid component */}
-      </div>
+      {/* should this be its own "div className = blah blah blah"??  */}
+      <h3>Comments</h3>
+        <CommentForm jobPostId={jobPostId}/>
+        {comments.map((comment) => (
+          <div key={comment._id}>
+            <p>Comment: {comment.content}</p>
+            <p>Posted By: {comment.postedBy.username}</p>
+          </div>
+        ))}
+    </div>
   );
-};
+}  
+
+    
+     
+ 
 
 export default JobDetails;
