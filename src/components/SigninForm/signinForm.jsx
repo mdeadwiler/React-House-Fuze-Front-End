@@ -1,50 +1,44 @@
-// George
+// src/components/SigninForm.jsx
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import "./signinForm.css";
 import { signin } from "../../Services/authService.js";
 
-function SigninForm({setUser}) {
+function SigninForm({ setUser }) {
   const [message, setMessage] = useState("");
   const [formData, setFormData] = useState({
     username: "",
     password: ""
   });
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
-  //message above login
-  const updateMessage = message => {
+  const updateMessage = (message) => {
     setMessage(message);
   };
 
-  //handle for event...
-  const handleChange = e => {
+  const handleChange = (e) => {
     const { name, value } = e.target;
     updateMessage("");
-    setFormData(prevFormData => ({
+    setFormData((prevFormData) => ({
       ...prevFormData,
       [name]: value
     }));
   };
 
-  //handle submit section....
   const handleSubmit = async (e) => {
     e.preventDefault();
-    // console.log("Form Submitted:", formData);
-    const userData = await signin(formData) /// userData that we pass in authService....
-    setUser(userData)
-    navigate("/homepage")
+    const userData = await signin(formData);
+    setUser(userData);
+    navigate("/homepage");
   };
 
   return (
-    <main>
-      <h3 className="header_login"></h3>
-      <p className="message_login">
-        {message}
-      </p>
-      <form onSubmit={handleSubmit}>
-        <div className="username_login">
+    <main className="signin-body">
+      <h3 className="signin-header_login">Sign In</h3>
+      <p className="signin-message_login">{message}</p>
+      <form onSubmit={handleSubmit} id="signin-container">
+        <div className="signin-username_login">
           <label htmlFor="username">Username:</label>
           <input
             type="text"
@@ -55,7 +49,7 @@ function SigninForm({setUser}) {
             onChange={handleChange}
           />
         </div>
-        <div className="password_login">
+        <div className="signin-password_login">
           <label htmlFor="password">Password:</label>
           <input
             type="password"
