@@ -1,17 +1,17 @@
 // George
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import "./signinForm.css";
+import "./signin.css";
 import { signin } from "../../Services/authService.js";
 
-function SigninForm({setUser}) {
+function SigninForm({ setUser }) {
   const [message, setMessage] = useState("");
   const [formData, setFormData] = useState({
     username: "",
     password: ""
   });
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   //message above login
   const updateMessage = message => {
@@ -29,17 +29,17 @@ function SigninForm({setUser}) {
   };
 
   //handle submit section....
-  const handleSubmit = async (e) => {
+  const handleSubmit = async e => {
     e.preventDefault();
     // console.log("Form Submitted:", formData);
-    const userData = await signin(formData) /// userData that we pass in authService....
-    setUser(userData)
-    navigate("/homepage")
+    const userData = await signin(formData); /// userData that we pass in authService....
+    setUser(userData);
+    navigate("/homepage");
   };
 
   return (
     <main>
-      <h3 className="header_login"></h3>
+      {/* <h3 className="header_login" ></h3> */}
       <p className="message_login">
         {message}
       </p>

@@ -5,9 +5,9 @@ import axios from "axios";
 * Function to get updated comments
 * no component state is used
  */
-// export async function refreshComments(postId) {
-//    return axios.Promise(`/jobPost/${postId}`).populate(result => result);
-//  }
+export async function refreshComments(postId) {
+  return axios.Promise(`/jobPost/${postId}`).populate(result => result);
+}
 
 const CommentForm = ({ jobPostId, jobcomments }) => {
   const [commentData, setCommentData] = useState({
@@ -25,7 +25,7 @@ const CommentForm = ({ jobPostId, jobcomments }) => {
 
   // handleSubmit function
 
-  const handleSubmit = async (e) => {
+  const handleSubmit = async e => {
     e.preventDefault();
     axios
       .post(`/${jobPostId}/comments`, { content: commentData.content })
@@ -49,15 +49,8 @@ const CommentForm = ({ jobPostId, jobcomments }) => {
         />
         <button type="submit">Add Comment</button>
       </form>
-      <ul>
-        {comments.map(comment =>
-          <li key={comment._id}>
-            {comment.content}
-          </li>
-        )}
-      </ul>
     </div>
   );
-}
+};
 
 export default CommentForm;

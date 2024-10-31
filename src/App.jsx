@@ -4,8 +4,8 @@ import { useState } from "react";
 import { AuthedUserContext } from "./Services/authContext.js";
 import { Routes, Route } from "react-router-dom";
 import Landing from "./components/Landing/Landing.jsx";
-import SignupForm from "./components/SignupForm/SignupForm.jsx"
-import SigninForm from "./components/SigninForm/SigninForm.jsx"
+import SignupForm from "./components/SignupForm/SignupForm.jsx";
+import SigninForm from "./components/SigninForm/signinForm.jsx";
 import JobListings from "./components/JobListings/JobListings.jsx";
 import PostJob from "./components/PostJob/PostJob.jsx";
 import JobDetails from "./components/JobDetails/JobDetails.jsx";
@@ -23,10 +23,10 @@ const App = () => {
       <NavBar handleSignout={handleSignout} />
       <Routes>
         <Route path="/" element={<Landing />} />
-        <Route path="/signup" element={<SignupForm setUser={setUser}/>} />
-        <Route path="/signin" element={<SigninForm setUser={setUser}/>} />
-        <Route path="/homepage" element={<JobListings />}/>
-        
+        <Route path="/signup" element={<SignupForm setUser={setUser} />} />
+        <Route path="/signin" element={<SigninForm setUser={setUser} />} />
+        <Route path="/homepage" element={<JobListings />} />
+
         <Route path="/jobPosts/new" element={<PostJob />} />
         {/* creates a job post route */}
         <Route path="/jobPosts/:jobPostId" element={<JobDetails />} />

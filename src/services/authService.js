@@ -11,11 +11,11 @@ export const signup = async (formData) => {
     }
 
     localStorage.setItem('token', res.data.token)
-    
+
     const user = JSON.parse(atob(res.data.token.split(".")[1]))
     return user;
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     throw error;
   }
 };

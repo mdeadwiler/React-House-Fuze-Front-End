@@ -4,6 +4,8 @@ import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { signup } from "../../Services/authService.js"; 
 
+
+
 function SignupForm({ setUser }) {
   const [string, setString] = useState("");
   const [formData, setFormData] = useState({
@@ -82,7 +84,7 @@ function SignupForm({ setUser }) {
 
   return (
     <main>
-      <h1>Join us</h1>
+      {/* <h1>Join us</h1> */}
       <p>{string}</p>
       <form onSubmit={handleSubmit}>
         <div>
