@@ -41,7 +41,7 @@ function NavBar({ handleSignout }) {
   const { user } = useContext(AuthedUserContext);
 
   const authorizationOptions = (
-    <div style={{ display: "flex", flexDirection: "row", gap: "10px" }}>
+    <div style={{ display: "flex", flexDirection: "row", gap: "10px", }}>
       <Link to="/homepage">Home</Link>
       <br />
       <Link to="/jobPosts/new">Post a Job</Link>
