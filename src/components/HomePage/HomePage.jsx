@@ -4,8 +4,8 @@ import JobListings from "../JobListings/JobListings"
 function HomePage() {
   return (
     <>
-    <JobListings />
     <div>homePage</div>
+    <JobListings />
     </>
   )
 }

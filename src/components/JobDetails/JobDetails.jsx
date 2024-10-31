@@ -61,7 +61,7 @@ const JobDetails = () => {
         {comments.map((comment) => (
           <div key={comment._id}>
             <p>Comment: {comment.content}</p>
-            <p>Posted By: {comment.postedBy.username}</p>
+            <p>Posted By: {comment.userId.username}</p>
             {comment.userId === user._id ? (<button onClick={() => deleteComment(comment._id)}>TrashBin</button>) : null}
           </div>
         ))}
