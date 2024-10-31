@@ -49,12 +49,12 @@ export const addComment = async (jobPostId, commentData) => {
   try {
     const res = await axios.post(
       `${BACKEND_URL}/api/jobPosts/${jobPostId}/comments`,
+      commentData,
       {
         headers: {
           Authorization: `Bearer ${localStorage.getItem("token")}`,
         },
-      },
-      commentData
+      }
     );
 
     return res.data;

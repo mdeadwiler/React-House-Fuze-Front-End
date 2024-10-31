@@ -48,7 +48,7 @@ const JobDetails = () => {
         <p>Date Created: {jobPost.dateCreated}</p>
         <p>Posted By: {jobPost.postedBy.username}</p>
       </div>
-      <PostBid jobPostId={jobPostId} bids={bids}/>
+      <PostBid jobPostId={jobPostId} setToggle={setToggle}/>
       {bids.map((bid) => (
         <div key={bid._id}>
           <p>Contractor: {bid.contractor.contractorCompany}</p>
@@ -61,7 +61,7 @@ const JobDetails = () => {
         {comments.map((comment) => (
           <div key={comment._id}>
             <p>Comment: {comment.content}</p>
-            <p>Posted By: {comment.postedBy.username}</p>
+            <p>Posted By: {comment.userId.username}</p>
             {comment.userId === user._id ? (<button onClick={() => deleteComment(comment._id)}>TrashBin</button>) : null}
           </div>
         ))}
