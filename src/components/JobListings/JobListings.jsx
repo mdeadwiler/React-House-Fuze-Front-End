@@ -1,7 +1,7 @@
 import { useEffect, useState, useContext } from "react";
 import { Link } from "react-router-dom";
-import { AuthedUserContext } from "../../Services/authContext.js";
-import { getJobPosts } from "../../Services/jobPosts.js";
+import { AuthedUserContext } from "../../services/authContext.js";
+import { getJobPosts } from "../../services/jobPosts.js";
 
 const JobListings = () => {
   const [ jobListings, setJobListings] = useState([]);
@@ -11,7 +11,7 @@ const JobListings = () => {
     const fetchJobPosts = async () => {
       const jobPostsData = await getJobPosts()
 
-      if (user.isHomeOwner) { // If user is a homeowner, we want to filter all job posts for just that user's job posts
+      if (user?.isHomeOwner) { // If user is a homeowner, we want to filter all job posts for just that user's job posts
         const ownerJobPosts = jobPostsData.filter((job) => {
           return job.postedBy._id === user._id
         })

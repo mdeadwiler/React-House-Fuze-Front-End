@@ -1,8 +1,7 @@
-// Marquise
-
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
-import { signup } from "../../Services/authService.js"; 
+import { signup } from "../../services/authService.js";
+import "./SignupForm.css";
 
 function SignupForm({ setUser }) {
   const [string, setString] = useState("");
@@ -15,7 +14,7 @@ function SignupForm({ setUser }) {
     lastName: "",
     isHomeOwner: true,
     contractorCompany: "",
-    contractorCategory: "",
+    contractorCategory: ""
   });
 
   const navigate = useNavigate();
@@ -29,16 +28,16 @@ function SignupForm({ setUser }) {
 
     setFormData((prevFormData) => ({
       ...prevFormData,
-      [name]: value,
+      [name]: value
     }));
   };
 
   const handleCheckboxChange = (e) => {
-    const { value } = e.target
+    const { value } = e.target;
 
     setFormData((prevFormData) => ({
       ...prevFormData,
-      isHomeOwner: value === 'homeOwner',
+      isHomeOwner: value === "homeOwner"
     }));
   };
 
@@ -52,8 +51,8 @@ function SignupForm({ setUser }) {
 
     try {
       if (isHomeOwner) {
-        delete formData.contractorCategory
-        delete formData.contractorCompany
+        delete formData.contractorCategory;
+        delete formData.contractorCompany;
       }
 
       const userData = await signup(formData);
@@ -81,8 +80,9 @@ function SignupForm({ setUser }) {
   } = formData;
 
   return (
-    <main>
-      <h1>Join us</h1>
+    <div className="signup_parent_container">
+    <main className="signup_main">
+      {/* <h1>Join us</h1> */}
       <p>{string}</p>
       <form onSubmit={handleSubmit}>
         <div>
@@ -93,6 +93,7 @@ function SignupForm({ setUser }) {
             value={username}
             name="username"
             onChange={handleChange}
+            className="input_tag"
           />
         </div>
         <div>
@@ -103,6 +104,7 @@ function SignupForm({ setUser }) {
             value={email}
             name="email"
             onChange={handleChange}
+            className="input_tag"
           />
         </div>
         <div>
@@ -113,6 +115,7 @@ function SignupForm({ setUser }) {
             value={firstName}
             name="firstName"
             onChange={handleChange}
+            className="input_tag"
           />
         </div>
         <div>
@@ -123,54 +126,59 @@ function SignupForm({ setUser }) {
             value={lastName}
             name="lastName"
             onChange={handleChange}
+            className="input_tag"
           />
         </div>
-        <div>
-        <label>
-          <input
-            type="radio"
-            name="userType"
-            value="homeOwner"
-            checked={isHomeOwner === true}
-            onChange={handleCheckboxChange}
-          />
-          Home Owner
-        </label>
-        <label>
-          <input
-            type="radio"
-            name="userType"
-            value="contractor"
-            checked={isHomeOwner === false}
-            onChange={handleCheckboxChange}
-          />
-          Contractor
-        </label>
-      </div>
-        { !isHomeOwner ? (
-          <>
+        <div className="radio_container">
           <div>
-          <label htmlFor="contractorCategory">Contractor Category</label>
-          <input
-            type="text"
-            id="contractorCategory"
-            value={contractorCategory}
-            name="contractorCategory"
-            onChange={handleChange}
-          />
+            <input
+              type="radio"
+              name="userType"
+              value="homeOwner"
+              checked={isHomeOwner === true}
+              onChange={handleCheckboxChange}
+            />
+            <label>Home Owner</label>
+          </div>
+          <div>
+            <input
+              type="radio"
+              name="userType"
+              value="contractor"
+              checked={isHomeOwner === false}
+              onChange={handleCheckboxChange}
+              />
+            <label>Contractor</label>
+          </div>
         </div>
-        <div>
-          <label htmlFor="contractorCompany">Contractor Company</label>
-          <input
-            type="title"
-            id="contractorCompany"
-            value={contractorCompany}
-            name="contractorCompany"
-            onChange={handleChange}
-          />
-        </div>
-        </>
-        ) : ""}
+        {!isHomeOwner ? (
+          <>
+            <div>
+              <label htmlFor="contractorCategory">Contractor Category</label>
+              <input
+                type="text"
+                id="contractorCategory"
+                value={contractorCategory}
+                name="contractorCategory"
+                onChange={handleChange}
+                className="input_tag"
+              />
+            </div>
+            <div>
+              <label htmlFor="contractorCompany">Contractor Company</label>
+              <input
+                type="title"
+                id="contractorCompany"
+                value={contractorCompany}
+                name="contractorCompany"
+                onChange={handleChange}
+                className="input_tag"
+              />
+            </div>
+          </>
+        ) : (
+          ""
+        )}
         <div>
           <label htmlFor="password">Password</label>
           <input
@@ -179,6 +187,7 @@ function SignupForm({ setUser }) {
             value={password}
             name="password"
             onChange={handleChange}
+            className="input_tag"
           />
         </div>
         <div>
@@ -189,22 +198,23 @@ function SignupForm({ setUser }) {
             value={passwordConf}
             name="passwordConf"
             onChange={handleChange}
+            className="input_tag"
           />
         </div>
-        <div>
-          <button disabled={isFormInvalid()}>Sign Up</button>
+        <div id="btn_signup">
+          <button disabled={isFormInvalid()} className="signup_btn">
+            Sign Up
+          </button>
           <Link to="/">
-            <button>Cancel</button>
+            <button className="cancel_btn">Cancel</button>
           </Link>
         </div>
 
         {/* see about !isHomeOwner */}
       </form>
     </main>
+    </div>
   );
 }
-/*if (!isHomeOwner){
-   userData.contractorCompany = contractorCompany
-   userData.contractorCategory = contractorCategory
-  }*/
+
 export default SignupForm;

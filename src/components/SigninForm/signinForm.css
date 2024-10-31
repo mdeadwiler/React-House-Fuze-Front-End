@@ -1,20 +1,11 @@
-/* src/components/signinForm.css */
-
-/* Prefixed with "signin-" to isolate styles */
-
-.signin-body {
-  font-family: Arial, sans-serif;
-  margin: 0;
-  padding: 0;
+#sigin-parent-container {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
-  background: linear-gradient(135deg, #C6E7FF, #8F94FB);
-  background-image: url(../../../public/Images/homelogin.png);
+  background-image: url(../Images/homelogin.png);
   background-repeat: no-repeat;
   background-size: cover;
-  color: #333;
+  height: 95vh;
 }
 
 #signin-container {
@@ -26,20 +17,20 @@
   text-align: center;
 }
 
-.signin-header_login {
+.header_login {
   font-size: 1.5rem;
   margin-bottom: 0.5rem;
-  color: #4E54C8;
+  color: #4e54c8;
 }
 
-.signin-message_login {
+.message_login {
   font-size: 1rem;
-  color: #8F94FB;
+  color: #8f94fb;
   margin-bottom: 1rem;
 }
 
-.signin-username_login,
-.signin-password_login {
+.username_login,
+.password_login {
   margin-bottom: 1rem;
 }
 
@@ -65,7 +56,7 @@
 
 #signin-container input[type="text"]:focus,
 #signin-container input[type="password"]:focus {
-  border-color: #4E54C8;
+  border-color: #4e54c8;
 }
 
 #signin-container button {
@@ -82,5 +73,5 @@
 }
 
 #signin-container button:hover {
-  background-color: #8F94FB;
+  background-color: #8f94fb;
 }

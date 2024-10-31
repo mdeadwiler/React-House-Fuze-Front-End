@@ -48,8 +48,3 @@ export const getUser = () => {
   const user = JSON.parse(atob(token.split('.')[1]));
   return user;
 }
-export const signout = () => {
-  localStorage.removeItem('token');
-};
-
-// <button onClick={signout}>
