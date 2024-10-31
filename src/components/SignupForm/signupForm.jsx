@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import { signup } from "../../Services/authService.js"; 
+import "./signup.css";
 
 
 
@@ -83,7 +84,7 @@ function SignupForm({ setUser }) {
   } = formData;
 
   return (
-    <main>
+    <main className="signup_main">
       {/* <h1>Join us</h1> */}
       <p>{string}</p>
       <form onSubmit={handleSubmit}>
@@ -95,6 +96,7 @@ function SignupForm({ setUser }) {
             value={username}
             name="username"
             onChange={handleChange}
+            className="input_tag"
           />
         </div>
         <div>
@@ -105,6 +107,7 @@ function SignupForm({ setUser }) {
             value={email}
             name="email"
             onChange={handleChange}
+            className="input_tag"
           />
         </div>
         <div>
@@ -115,6 +118,8 @@ function SignupForm({ setUser }) {
             value={firstName}
             name="firstName"
             onChange={handleChange}
+                        className="input_tag"
+
           />
         </div>
         <div>
@@ -125,6 +130,8 @@ function SignupForm({ setUser }) {
             value={lastName}
             name="lastName"
             onChange={handleChange}
+                        className="input_tag"
+
           />
         </div>
         <div>
@@ -135,6 +142,8 @@ function SignupForm({ setUser }) {
             value="homeOwner"
             checked={isHomeOwner === true}
             onChange={handleCheckboxChange}
+                        className="input_tag"
+
           />
           Home Owner
         </label>
@@ -145,6 +154,8 @@ function SignupForm({ setUser }) {
             value="contractor"
             checked={isHomeOwner === false}
             onChange={handleCheckboxChange}
+                        className="input_tag"
+
           />
           Contractor
         </label>
@@ -159,6 +170,8 @@ function SignupForm({ setUser }) {
             value={contractorCategory}
             name="contractorCategory"
             onChange={handleChange}
+                        className="input_tag"
+
           />
         </div>
         <div>
@@ -169,6 +182,8 @@ function SignupForm({ setUser }) {
             value={contractorCompany}
             name="contractorCompany"
             onChange={handleChange}
+                        className="input_tag"
+
           />
         </div>
         </>
@@ -181,6 +196,8 @@ function SignupForm({ setUser }) {
             value={password}
             name="password"
             onChange={handleChange}
+                        className="input_tag"
+
           />
         </div>
         <div>
@@ -191,12 +208,14 @@ function SignupForm({ setUser }) {
             value={passwordConf}
             name="passwordConf"
             onChange={handleChange}
+                        className="input_tag"
+
           />
         </div>
-        <div>
-          <button disabled={isFormInvalid()}>Sign Up</button>
+        <div id="btn_signup">
+          <button disabled={isFormInvalid()} className="signup_btn">Sign Up</button>
           <Link to="/">
-            <button>Cancel</button>
+            <button className="cancel_btn">Cancel</button>
           </Link>
         </div>
 

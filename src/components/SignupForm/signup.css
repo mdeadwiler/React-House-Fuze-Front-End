@@ -1,0 +1,39 @@
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  /* background: linear-gradient(135deg, #C6E7FF, #8f94fb); */
+  background-image: url(../../../public/Images/homelogin.png);
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: #333;
+}
+
+
+.signup_main {
+  background-color: rgba(255, 255, 255, 0.9);
+  width: 320px;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.3);
+  text-align: center;
+}
+
+.input_tag {
+  border: 2px solid;
+  border-radius: 4px;
+  font-size: 1 rem;
+  margin: 0.25rem;
+  min-width: 250px;
+  padding: 0.5rem;
+  transition: border-color 05s ease-out;
+}
+
+.signup_btn,
+.signup_cancel {
+  margin: px;
+}
