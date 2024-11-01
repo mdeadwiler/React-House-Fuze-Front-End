@@ -6,18 +6,44 @@ html {
     padding: 0;
     font-family: Arial, sans-serif;
     height: 100%;
+    background-color: #ffffff;
+}
+
+/* Our Services Title Styling */
+.our-services-title {
+    font-size: 2em;
+    color: #333;
+    margin: 40px 0 20px;
+    text-align: center;
+    font-weight: bold;
+}
+
+/* Define the fade-in animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+.fade-in {
+    opacity: 0;
+    animation: fadeIn 1.5s ease forwards;
 }
 
 .landing-container {
     display: flex;
     flex-direction: column;
     align-items: center;
+    background-color: #ffffff;
 }
 
 .navbar {
     display: flex;
     justify-content: flex-end;
-    /* Aligns navbar items to the right */
     align-items: center;
     background-color: white;
     padding: 15px;
@@ -34,17 +60,17 @@ html {
     font-size: 1em;
     padding: 10px;
     margin-left: 20px;
-    /* Adds spacing between navbar items */
 }
 
 .teal-section {
-    background-color: #e0f7f4;
-    width: 100%;
+    width: 100vw;
     height: 60vh;
     display: flex;
     align-items: center;
     justify-content: center;
     position: relative;
+    overflow: hidden;
+    /* Ensure it covers the full width */
 }
 
 .teal-section::before {
@@ -52,11 +78,13 @@ html {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100%;
+    width: 100vw;
     height: 100%;
-    background-image: url('/Gemini_Generated_Image_gop1nfgop1nfgop1.jpeg');
+    background-image: url('/Gemini_Generated_Image_wmpczvwmpczvwmpc.jpeg');
     background-size: cover;
+    /* Stretch to cover entire area */
     background-position: center;
+    background-repeat: no-repeat;
     opacity: 0.7;
     z-index: 1;
 }
@@ -73,27 +101,23 @@ html {
     font-weight: bold;
     margin: 0;
     color: #ffffff;
-    /* White text */
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
-    /* Shadow for contrast */
 }
 
 .landing-subtitle {
     font-size: 1.5em;
     margin-top: 10px;
     color: #f0f0f0;
-    /* Slightly off-white text */
     text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.6);
-    /* Lighter shadow for subtitle */
 }
 
 .services-section {
-    background-color: #f7f7f7;
     width: 100%;
     padding: 40px 0;
     display: flex;
     justify-content: center;
     gap: 20px;
+    background-color: #ffffff;
 }
 
 .service-icon {
@@ -105,13 +129,9 @@ html {
     height: 200px;
     border-radius: 50%;
     background-size: contain;
-    /* Ensures the entire image fits within the circle */
     background-position: center;
-    /* Centers the image within the circle */
     background-repeat: no-repeat;
-    /* Prevents the image from repeating */
-    background-color: #e0f7f4;
-    /* Sets a background color if needed */
+    background-color: #ffffff;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
