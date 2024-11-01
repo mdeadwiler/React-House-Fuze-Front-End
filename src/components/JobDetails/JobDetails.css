@@ -1,0 +1,119 @@
+/* Ensure the entire background is white */
+body,
+html {
+  background-color: #ffffff !important;
+  /* Force white background */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Card Container */
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px auto;
+  /* Center the card horizontally */
+  width: 800px;
+  /* Set a fixed width for the card */
+}
+
+/* Job Details Header */
+.job_detail_head {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #007BFF;
+  text-align: center;
+}
+
+/* Job Info Styles */
+.job-info {
+  margin-bottom: 20px;
+  font-size: medium;
+  font-weight: 600;
+}
+
+.job_info_head {
+  font-size: 28px;
+  margin: 0;
+  color: #007BFF;
+  border-bottom: 2px solid #007BFF;
+  padding-bottom: 10px;
+}
+
+/* Paragraph Styles */
+.job-info p {
+  margin: 8px 0;
+  /* Add margin for spacing */
+  line-height: 1.6;
+  /* Improve readability */
+}
+
+/* Bid Submission Container */
+.submit-bid-container {
+  background: #ffffff;
+  /* White background */
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  /* Space below the submit bid container */
+}
+
+/* Bid Section */
+.bid_div {
+  background: #ffffff;
+  /* White background */
+  padding: 15px;
+  border-radius: 8px;
+  margin: 10px 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Bid Paragraph Styles */
+.bid_div p {
+  margin: 5px 0;
+  /* Add margin for spacing */
+  line-height: 1.5;
+  /* Improve readability */
+}
+
+/* Comments Section */
+.comment_head {
+  font-size: 24px;
+  margin-top: 30px;
+  color: #007BFF;
+  text-align: center;
+  /* Center the comment heading */
+}
+
+.comment_card {
+  background: #ffffff;
+  /* White background */
+  padding: 15px;
+  border-radius: 8px;
+  margin: 20px 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Comments Container */
+.comment_div {
+  background: #ffffff;
+  /* White background */
+  padding: 15px;
+  border-radius: 8px;
+  margin: 10px 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  font-size: large;
+  font-weight: 700;
+}
+
+/* Align TrashBin button */
+.comment_div button {
+  margin-left: auto;
+  /* Align button to the right */
+  display: block;
+  /* Ensure the button occupies its own line */
+}

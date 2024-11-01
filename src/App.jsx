@@ -9,6 +9,7 @@ import SigninForm from "./components/SigninForm/SigninForm.jsx"
 import JobListings from "./components/JobListings/JobListings.jsx";
 import PostJob from "./components/PostJob/PostJob.jsx";
 import JobDetails from "./components/JobDetails/JobDetails.jsx"
+import EditJob from "./components/EditJob/EditJob.jsx"
 import "./App.css";
 
 const App = () => {
@@ -39,6 +40,7 @@ const App = () => {
         
         <Route path="/jobPosts/new" element={<PostJob />} />
         <Route path="/jobPosts/:jobPostId" element={<JobDetails />} />
+        <Route path="/jobPosts/:jobPostId/edit" element={<EditJob />} />
       
       </Routes>
     </AuthedUserContext.Provider>

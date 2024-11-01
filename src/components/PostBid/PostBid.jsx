@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { createBid } from "../../services/bid";
+import "./PostBid.css";
 
 //linked to jobPostId
 const PostBid = ({ jobPostId, setToggle }) => {
@@ -30,35 +31,42 @@ const PostBid = ({ jobPostId, setToggle }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <h3>Submit a Bid</h3>
+    <>
+          <h3 className="postbid_head">Submit a Bid</h3>
 
-      <label>Bid Amount ($):</label>
-      <input
-        type="number"
-        value={bidAmount}
-        onChange={(e) => setBidAmount(e.target.value)}
-        required
-      />
+    <div className="postbid_form">
 
-      <label>Job Start Date:</label>
-      <input
-        type="date"
-        value={jobStartDate}
-        onChange={(e) => setJobStartDate(e.target.value)}
-        required
-      />
+      <form onSubmit={handleSubmit}>
+        <label>Bid Amount ($):</label>
+        <input
+          type="number"
+          value={bidAmount}
+          onChange={(e) => setBidAmount(e.target.value)}
+          required
+        />
 
-      <label>Job End Date:</label>
-      <input
-        type="date"
-        value={jobEndDate}
-        onChange={(e) => setJobEndDate(e.target.value)}
-        required
-      />
+        <label>Job Start Date:</label>
+        <input
+          type="date"
+          value={jobStartDate}
+          onChange={(e) => setJobStartDate(e.target.value)}
+          required
+        />
 
-      <button type="submit">Place Bid</button>
-    </form>
+        <label>Job End Date:</label>
+        <input
+          type="date"
+          value={jobEndDate}
+          onChange={(e) => setJobEndDate(e.target.value)}
+          required
+        />
+
+        <button type="submit" className="postbid_btn">
+          Place Bid
+        </button>
+      </form>
+    </div>
+    </>
   );
 };
 

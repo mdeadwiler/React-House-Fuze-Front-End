@@ -1,0 +1,70 @@
+/* src/components/JobListings.css */
+
+.joblistings-container {
+    max-width: 1000px;
+    margin: 30px auto;
+    padding: 20px;
+    background-color: #f7f7f7;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.joblistings-title {
+    text-align: center;
+    font-size: 2em;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.job-card-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+.job-card {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    margin-bottom: 20px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: box-shadow 0.3s ease, transform 0.2s ease;
+}
+
+.job-card:hover {
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transform: translateY(-5px);
+}
+
+.job-card-title {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.job-card-content {
+    font-size: 1em;
+    color: #555;
+    margin-bottom: 10px;
+}
+
+.job-card-detail {
+    font-size: 0.9em;
+    color: #666;
+    margin: 5px 0;
+}
+
+.joblistings-no-jobs {
+    text-align: center;
+    color: #777;
+    font-size: 1.2em;
+    margin-top: 20px;
+}
+.svg-icons {
+    height: 20px;
+    margin: 0 5px;
+}
+
+.heading-and-trash {
+    display: flex;
+    justify-content: space-between;
+}
