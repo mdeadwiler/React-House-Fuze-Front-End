@@ -1,4 +1,6 @@
 import JobListings from "../JobListings/JobListings"
+import "./Landing.css";
+
 
 
 function HomePage() {
