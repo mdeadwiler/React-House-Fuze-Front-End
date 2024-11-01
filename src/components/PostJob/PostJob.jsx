@@ -14,11 +14,13 @@ const PostJob = () => {
 
   const navigate = useNavigate();
 
+  
   const handleSubmit = async (e) => {
     e.preventDefault();
     setLoading(true);
     setError("");
 
+    // Job Post data from the backend
     const jobData = {
       title,
       content,

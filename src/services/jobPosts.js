@@ -45,6 +45,39 @@ export const createJobPost = async (jobPost) => {
   }
 };
 
+export const editJobPost = async (jobPostId, jobPost) => {
+  try {
+    const res = await axios.put(
+      `${BACKEND_URL}/api/jobPosts/${jobPostId}`,
+      jobPost,
+      { headers: { Authorization: `Bearer ${localStorage.getItem("token")}` } }
+    );
+
+    return res;
+  } catch (error) {
+    console.error("Error creating job post:", error.message);
+    return error;
+  }
+};
+
+export const deleteJobPost = async (jobPostId) => {
+  try {
+    const response = await axios.delete(
+      `${BACKEND_URL}/api/jobPosts/${jobPostId}`,
+      {
+        headers: {
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      }
+    );
+  
+    return response;
+  } catch (error) {
+    console.error("Error creating job post:", error.message);
+    return error;
+  }
+}
+
 export const addComment = async (jobPostId, commentData) => {
   try {
     const res = await axios.post(
@@ -60,6 +93,6 @@ export const addComment = async (jobPostId, commentData) => {
     return res.data;
   } catch (error) {
     console.log(error);
-    throw error;
+    return error;
   }
 };

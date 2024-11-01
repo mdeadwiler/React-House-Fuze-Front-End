@@ -1,10 +1,9 @@
-// src/components/JobDetails.jsx
-import { useEffect, useState, useContext } from 'react';
-import { useParams } from 'react-router-dom';
-import { getJobPost } from '../../services/jobPosts.js';
-import { deleteComment } from '../../services/comments.js';
-import { AuthedUserContext } from '../../services/authContext.js';
-import PostBid from '../PostBid/PostBid';
+import { useEffect, useState, useContext } from "react";
+import { useParams } from "react-router-dom";
+import { getJobPost } from "../../services/jobPosts.js";
+import { deleteComment } from "../../services/comments.js";
+import { AuthedUserContext } from "../../services/authContext.js";
+import PostBid from "../PostBid/PostBid";
 import CommentForm from "../Comments/CommentForm.jsx";
 import "./JobDetails.css";
 
@@ -33,61 +32,45 @@ const JobDetails = () => {
   }, [jobPostId, toggle]);
 
   if (!jobPost) {
-    return <p className="job-error-message">We can't find that job right now.</p>;
+    return <p>We can't find that job right now.</p>;
   }
 
   return (
-    <div className="job-details-container">
-      <h2 className="job-title">Job Details</h2>
+    <div id="job_details" className="card">
+      <h2 className="job_detail_head">Job Details</h2>
       <div className="job-info">
-        <span className="job-info-label">Title:</span>
-        <span className="job-info-value">{jobPost.title}</span>
-        <span className="job-info-label">Description:</span>
-        <span className="job-info-value">{jobPost.content}</span>
-        <span className="job-info-label">Category:</span>
-        <span className="job-info-value">{jobPost.category}</span>
-        <span className="job-info-label">Location:</span>
-        <span className="job-info-value">{jobPost.location}</span>
-        <span className="job-info-label">Status:</span>
-        <span className="job-info-value">{jobPost.status}</span>
-        <span className="job-info-label">Date Created:</span>
-        <span className="job-info-value">{new Date(jobPost.dateCreated).toLocaleDateString()}</span>
-        <span className="job-info-label">Posted By:</span>
-        <span className="job-info-value">{jobPost.postedBy.username}</span>
+        <h3 className="job_info_head">{jobPost.title}</h3>
+        <p>Description: {jobPost.content}</p>
+        <p>Contractor Category: {jobPost.category}</p>
+        <p>Location: {jobPost.location}</p>
+        <p>Status: {jobPost.status}</p>
+        <p>Date Created: {jobPost.dateCreated}</p>
+        <p>Posted By: {jobPost.postedBy.username}</p>
       </div>
-
-      {/* Submitted Bids Section */}
-      <h3 className="bid-title">Submitted Bids</h3>
-      {bids.length > 0 ? (
-        bids.map((bid) => (
-          <div key={bid._id} className="bid-info">
-            <span className="bid-info-label">Contractor:</span> <span className="bid-info-value">{bid.contractor.contractorCompany}</span><br/>
-            <span className="bid-info-label">Bid Amount:</span> <span className="bid-info-value">${bid.bidAmount}</span>
-          </div>
-        ))
-      ) : (
-        <p>No bids available yet.</p>
-      )}
-
-      {/* Bid Form Section */}
-      <div className="bid-form-container">
+      <div className="submit-bid-container">
+        {" "}
         <PostBid jobPostId={jobPostId} setToggle={setToggle} />
       </div>
-
-      {/* Comments Section */}
-      <h3 className="comment-title">Comments</h3>
-      <div className="comment-section">
+      {bids.map((bid) => (
+        <div key={bid._id} className="bid_div">
+          <p>Contractor: {bid.contractor.contractorCompany}</p>
+          <p>Bid Amount: ${bid.bidAmount}</p>
+        </div>
+      ))}
+      <h3 className="comment_head">Comments</h3>
+      <div className="comment_card">
+        {" "}
         <CommentForm jobPostId={jobPostId} setToggle={setToggle} />
-        {comments.map((comment) => (
-          <div key={comment._id} className="comment">
-            <p className="comment-content">{comment.content}</p>
-            <p className="comment-author">Posted By: {comment.userId.username}</p>
-            {comment.userId === user._id && (
-              <button onClick={() => deleteComment(comment._id)} className="delete-comment-button">Delete</button>
-            )}
-          </div>
-        ))}
       </div>
+      {comments.map((comment) => (
+        <div key={comment._id} className="comment_div">
+          <p>Comment: {comment.content}</p>
+          <p>Posted By: {comment.userId.username}</p>
+          {comment.userId === user._id ? (
+            <button onClick={() => deleteComment(comment._id)}>TrashBin</button>
+          ) : null}
+        </div>
+      ))}
     </div>
   );
 };

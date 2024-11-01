@@ -1,134 +1,119 @@
-/* General Layout */
-.job-details-container {
-    max-width: 800px;
-    margin: 30px auto;
-    padding: 20px;
-    background-color: #ffffff;
-    /* White background */
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+/* Ensure the entire background is white */
+body,
+html {
+  background-color: #ffffff !important;
+  /* Force white background */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-.job-title {
-    font-size: 2em;
-    font-weight: bold;
-    color: #333;
-    text-align: center;
-    margin-bottom: 20px;
+/* Card Container */
+.card {
+  background: #ffffff;
+  border-radius: 12px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  margin: 20px auto;
+  /* Center the card horizontally */
+  width: 800px;
+  /* Set a fixed width for the card */
 }
 
-/* Job Info Styling */
+/* Job Details Header */
+.job_detail_head {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #007BFF;
+  text-align: center;
+}
+
+/* Job Info Styles */
 .job-info {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-    row-gap: 10px;
-    column-gap: 20px;
-    padding: 15px;
-    background-color: #ffffff;
-    /* White background */
-    border-radius: 8px;
-    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
-    margin-bottom: 20px;
+  margin-bottom: 20px;
+  font-size: medium;
+  font-weight: 600;
 }
 
-.job-info-label {
-    font-weight: bold;
-    color: #555;
-    text-align: right;
+.job_info_head {
+  font-size: 28px;
+  margin: 0;
+  color: #007BFF;
+  border-bottom: 2px solid #007BFF;
+  padding-bottom: 10px;
 }
 
-.job-info-value {
-    color: #333;
-    font-size: 0.95em;
-    padding-left: 10px;
+/* Paragraph Styles */
+.job-info p {
+  margin: 8px 0;
+  /* Add margin for spacing */
+  line-height: 1.6;
+  /* Improve readability */
 }
 
-/* Bid Form Styling */
-.bid-form-container {
-    padding: 20px;
-    background-color: #ffffff;
-    /* White background */
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    margin-bottom: 20px;
+/* Bid Submission Container */
+.submit-bid-container {
+  background: #ffffff;
+  /* White background */
+  padding: 15px;
+  border-radius: 10px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  /* Space below the submit bid container */
 }
 
-.bid-title {
-    font-size: 1.5em;
-    font-weight: bold;
-    color: #333;
-    text-align: center;
-    margin-top: 20px;
+/* Bid Section */
+.bid_div {
+  background: #ffffff;
+  /* White background */
+  padding: 15px;
+  border-radius: 8px;
+  margin: 10px 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Individual bid info */
-.bid-info {
-    background-color: #ffffff;
-    /* White background */
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+/* Bid Paragraph Styles */
+.bid_div p {
+  margin: 5px 0;
+  /* Add margin for spacing */
+  line-height: 1.5;
+  /* Improve readability */
 }
 
-.bid-info-label {
-    font-weight: bold;
-    color: #555;
+/* Comments Section */
+.comment_head {
+  font-size: 24px;
+  margin-top: 30px;
+  color: #007BFF;
+  text-align: center;
+  /* Center the comment heading */
 }
 
-.bid-info-value {
-    color: #333;
-    display: inline;
+.comment_card {
+  background: #ffffff;
+  /* White background */
+  padding: 15px;
+  border-radius: 8px;
+  margin: 20px 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Comments Section Styling */
-.comment-section {
-    margin-top: 20px;
+/* Comments Container */
+.comment_div {
+  background: #ffffff;
+  /* White background */
+  padding: 15px;
+  border-radius: 8px;
+  margin: 10px 0;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  font-size: large;
+  font-weight: 700;
 }
 
-.comment-title {
-    text-align: center;
-    color: #333;
-    font-size: 1.5em;
-    margin-bottom: 15px;
-}
-
-.comment {
-    background-color: #ffffff;
-    /* White background */
-    padding: 10px;
-    border-radius: 5px;
-    margin-bottom: 10px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-}
-
-.comment-content {
-    color: #333;
-}
-
-.comment-author {
-    font-size: 0.9em;
-    color: #555;
-}
-
-.delete-comment-button {
-    background-color: #d9534f;
-    color: #fff;
-    border: none;
-    padding: 5px 10px;
-    border-radius: 3px;
-    cursor: pointer;
-    font-size: 0.8em;
-    margin-top: 5px;
-}
-
-.delete-comment-button:hover {
-    background-color: #c9302c;
-}
-
-.job-error-message {
-    color: #d9534f;
-    text-align: center;
-    margin: 20px;
-    font-weight: bold;
+/* Align TrashBin button */
+.comment_div button {
+  margin-left: auto;
+  /* Align button to the right */
+  display: block;
+  /* Ensure the button occupies its own line */
 }
