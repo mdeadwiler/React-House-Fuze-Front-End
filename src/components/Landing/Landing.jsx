@@ -2,7 +2,7 @@
 import "./Landing.css";
 import electrical from "../Images/electrical.jpg"
 import flooring from "../Images/flooring.jpg"
-import general from "../Images/general.jpg"
+//import general from "../Images/general.jpg"
 import landscaping from "../Images/landscaping.jpg"
 import plumbing from "../Images/plumber.jpg"
 import roofer from "../Images/roofer.jpg"
